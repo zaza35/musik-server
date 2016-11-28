@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/vendors/vue.min.js"></script>
     <script src="js/vendors/vue-resource.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -14,12 +16,14 @@
         <input type="text" v-model="keywords" v-on:keyup.enter="search" v-focus="true">
         <div class="items-container">
             <div v-for="item in items" class="item">
-                <img v-bind:src="item.thumbnail.url" v-bind:alt="item.title">
-                <p class="item-info">{{ item.title }}</p>
-                <a class="item-download-link" v-bind:href="'download/' + item.id"><i class="fa fa-download" aria-hidden="true"></i></a>
+                <a v-bind:title="'Download ' + item.title" v-bind:href="'download/' + item.id">
+                    <img v-bind:src="item.thumbnail.url" v-bind:alt="item.title"> {{ item.title }}
+                </a>
+                <a href="#" class="preview" v-bind:link="'preview/' + item.id"><i class="fa fa-volume-up"></i></a>
             </div>
         </div>
     </section>
+    <audio id="player" autoplay="autoplay"></audio>
     <script src="js/script.js"></script>
 </body>
 

@@ -53,10 +53,9 @@ body {
             justify-content: space-around;
             .item {
                 margin: 20px 5px;
-                color: white;
                 text-align: center;
-                -moz-flex: 0 0 200px;
-                -webkit-flex: 0 0 200px;
+                -moz-flex: 0 0 300px;
+                -webkit-flex: 0 0 300px;
                 flex: 0 0 300px;
                 background-color: rgba(0, 0, 0, .7);
                 display: flex;
@@ -65,10 +64,28 @@ body {
                 img {
                     width: 100%;
                 }
-                .item-download-link {
+                a {
                     color: white;
-                    margin-bottom: 10px;
+                    text-decoration: none;
+                }
+                .preview {
+                    opacity: 0;
+                    color: gray;
                     font-size: 2.5em;
+                    transform: translateY(-260px);
+                    padding-left: 10px;
+                    height: 10px;
+                    text-align: left;
+                    transition: all 0.3s ease-in-out;
+                    i:hover {
+                        color: white;
+                    }
+                }
+                &:hover .preview {
+                    opacity: 1;
+                }
+                .preview.playingPreviewIcon {
+                    opacity: 1;
                 }
             }
         }
